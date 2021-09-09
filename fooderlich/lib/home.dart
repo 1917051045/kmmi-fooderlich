@@ -4,6 +4,7 @@ import 'models/models.dart';
 import 'screens/explore_screen.dart';
 import 'screens/recipes_screen.dart';
 import 'screens/grocery_screen.dart';
+import 'screens/search_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -29,6 +30,13 @@ class _HomeState extends State<Home> {
               'Fooderlich',
               style: Theme.of(context).textTheme.headline6,
             ),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    showSearch(context: context, delegate: Search());
+                  },
+                  icon: Icon(Icons.search))
+            ],
           ),
           body: IndexedStack(index: tabManager.selectedTab, children: pages),
           bottomNavigationBar: BottomNavigationBar(
